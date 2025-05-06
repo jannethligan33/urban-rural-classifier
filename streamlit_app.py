@@ -13,7 +13,7 @@ model_path = "urban_rural_model.h5"
 
 # Download only if not already present
 if not os.path.exists(model_path):
-    url = "https://drive.google.com/file/d/1iPBWUv6CuViDjyob5LIYk1B73XgHxOK5/view?usp=sharing"
+    url = "https://drive.google.com/uc?id=1iPBWUv6CuViDjyob5LIYk1B73XgHxOK5"
     gdown.download(url, model_path, quiet=False)
 
 # Load the model
