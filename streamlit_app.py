@@ -1,13 +1,23 @@
 import streamlit as st
 import numpy as np
+import gdown
+import os
 from tensorflow.keras.models import load_model
 from tensorflow.keras.applications.resnet50 import preprocess_input
 from tensorflow.keras.preprocessing.image import img_to_array
 from PIL import Image
 
 
-# Load the trained CNN model
-model = load_model('urban_rural_model.h5')
+# Path to save the model
+model_path = "urban_rural_model.h5"
+
+# Download only if not already present
+if not os.path.exists(model_path):
+    url = "https://drive.google.com/file/d/1iPBWUv6CuViDjyob5LIYk1B73XgHxOK5/view?usp=sharing"
+    gdown.download(url, model_path, quiet=False)
+
+# Load the model
+model = load_model(model_path)
 
 # App Title and Description
 st.title("Rural or Urban Image Classifier")
